@@ -1,4 +1,4 @@
-const playerSelector = ('rock', 'paper', 'scissors');
+let playerSelector = ('rock', 'paper', 'scissors');
 computerSelector = getComputerChoice();
 console.log(playRound(playerSelector, computerSelector));
 
