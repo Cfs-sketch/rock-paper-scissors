@@ -1,21 +1,17 @@
-let playerSelector = ('rock', 'paper', 'scissors');
-computerSelector = getComputerChoice();
-console.log(playRound(playerSelector, computerSelector));
 
-function getComputerChoice(Rock, Paper, Scissors) {
-    Rock = 'Rock'; Paper = 'Paper'; Scissors = 'Scissors';
-return Math.floor(Math.random(Rock, Paper, Scissors));
+function getComputerChoice() {
+    let choices = ['rock','paper','scissors'];
+return Math.floor(Math.random() * choices.length);
 }
 
-function playRound(playerSelector, computerSelector) {
+function playRound(playerSelector) {
+let computerSelector =  getComputerChoice();
+let result = ""
 
-    if (playerSelector === computerSelector) {
-        alert('It\'s a tie!');
-    } else if (playerSelector === 'Rock') 
-        if (computerSelector === 'Scissors')
-         {
-            alert('You win!');
-}}
+    if ((playerSelector == 'rock' && computerSelector == 'scissors') ||
+    (playerSelector == 'scissors' && computerSelector == 'paper') ||
+    (playerSelector == 'paper' && computerSelector == 'rock')) ;
+}
 function game(playRound){
     for (let i = 0; i < 5; i++) {
         playRound();
