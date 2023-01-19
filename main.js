@@ -1,6 +1,4 @@
-
-const playerSelector = ('rock', 'paper', 'scissors','Rock'
-, 'Paper', 'Scissors', 'ROCK', 'PAPER', 'SCISSORS');
+const playerSelector = ('rock', 'paper', 'scissors');
 computerSelector = getComputerChoice();
 console.log(playRound(playerSelector, computerSelector));
 
@@ -14,7 +12,8 @@ function playRound(playerSelector, computerSelector) {
     if (playerSelector === computerSelector) {
         alert('It\'s a tie!');
     } else if (playerSelector === 'Rock') 
-        if (computerSelector === 'Scissors') {
+        if (computerSelector === 'Scissors')
+         {
             alert('You win!');
 }}
 function game(playRound){
@@ -22,3 +21,4 @@ function game(playRound){
         playRound();
      }
 }
+game(playRound);
