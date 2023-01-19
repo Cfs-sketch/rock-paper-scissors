@@ -18,5 +18,7 @@ function playRound(playerSelector, computerSelector) {
             alert('You win!');
 }}
 function game(playRound){
-
+    for (let i = 0; i < 5; i++) {
+        playRound();
+     }
 }
