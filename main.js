@@ -1,43 +1,94 @@
 let playerScore = 0;
 let computerScore = 0;
 
-function getComputerChoice() {
-    let choices = ['rock','paper','scissors'];
-return Math.floor(Math.random() * choices.length);
+const playerSelection = playerPlay();
+const computerSelection = computerPlay();
+
+// computer select function
+function computerPlay() {
+
+    const option = ['rock', 'paper', 'scissors'];
+
+    let random = Math.floor(Math.random() * 3);
+    
+    return option[random];
 }
 
-function playRound(playerSelector) {
-    let computerSelector = computerPlay()
-    let result = ""
+console.log('Computer: ' + computerSelection);
 
-    if ((playerSelector == 'rock' && computerSelector == 'scissors') ||
-        (playerSelector == 'scissors' && computerSelector == 'paper') ||
-        (playerSelector == 'paper' && computerSelector == 'rock')) {
-        
-        playerScore += 1
-        result = ('You win! ' + playerSelector + ' beats ' + computerSelector
-            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+// player select function
+function playerPlay() {
 
-        if (playerScore == 5) {
-            result += '<br><br>You won the game! Reload the page to play again'
-            disableButtons()
-        }
-    }
-    else if (playerSelector == computerSelector) {
-        result = ('It\'s a tie. You both chose ' + playerSelector
-            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
-    }
-    else {
-        computerScore += 1
-        result = ('You lose! ' + computerSelector + ' beats ' + playerSelector
-            + "<br><br>Player score: " + playerScore + "<br>Computer score: " + computerScore)
+    const input = prompt('Please enter input');
 
-        if (computerScore == 5) {
-            result += '<br><br>I won the game! Reload the page to play again'
-            disableButtons()
-        }
-    }
-
-    document.getElementById('result').innerHTML = result
-    return
+    const option = input.toLowerCase();
+    
+    return option;
 }
+
+console.log('Player: ' + playerSelection);
+
+
+// play 1 single round
+function playRound(playerSelection, computerSelection) {
+
+    if(playerSelection === computerSelection) {
+        return 'It is a tie';
+    }
+
+
+    if(playerSelection === 'rock') {
+
+        if(computerSelection === 'scissors') {
+            playerScore++;
+            return 'Player wins with rock';
+        } else if(computerSelection === 'paper') {
+            computerScore++;
+            return 'Computer wins with paper'
+        }
+    }
+
+    if(playerSelection === 'paper') {
+
+        if(computerSelection === 'rock') {
+            playerScore++;
+            return 'Player wins with paper';
+        } else if(computerSelection === 'scissors') {
+            computerScore++;
+            return 'Computer wins with scissors';
+        }
+    }
+
+    if(playerSelection === 'scissors') {
+
+        if(computerSelection === "paper") {
+            playerScore++;
+            return 'Player wins with scissors';
+        } else if(computerSelection === 'rock') {
+            computerScore++;
+            return 'Computer wins with rock';
+        }
+    }
+
+}
+
+// console.log(playRound(playerSelection, computerSelection));
+playRound(playerSelection, computerSelection);
+
+console.log('Player: ' + playerScore);
+console.log('Computer: ' + computerScore);
+
+
+// game
+
+function game() {
+
+    for(var i = 1; i <= 5; i++) {
+
+       console.log('repeat 5 times');
+       playRound(playerSelection, computerSelection);
+    }
+
+}
+
+game();
