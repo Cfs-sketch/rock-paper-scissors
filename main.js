@@ -78,17 +78,21 @@ playRound(playerSelection, computerSelection);
 console.log('Player: ' + playerScore);
 console.log('Computer: ' + computerScore);
 
-
 // game
 
 function game() {
-
-    for(let i = 1; i <= 5; i++) {
-
-       console.log('repeat 5 times');
-       playRound(playerSelection, computerSelection);
+    for (i = 0; i <= 5; i++) {
+      var playerSelection = playerPlay();
+      var computerSelection = computerPlay();
+      playRound(playerSelection, computerSelection);
+      console.log('Computer: ' + computerSelection);
+      console.log('Player: ' + playerSelection);
+      console.log('Player: ' + playerScore);
+      console.log('Computer: ' + computerScore);
     }
-
-}
-
-game();
+    console.log('Final Player: ' + playerScore);
+    console.log('Final Computer: ' + computerScore);
+  
+  }
+  
+  game();
