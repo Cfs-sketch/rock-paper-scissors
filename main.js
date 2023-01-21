@@ -83,7 +83,7 @@ console.log('Computer: ' + computerScore);
 
 function game() {
 
-    for(var i = 1; i <= 5; i++) {
+    for(let i = 1; i <= 5; i++) {
 
        console.log('repeat 5 times');
        playRound(playerSelection, computerSelection);
